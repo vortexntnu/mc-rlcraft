@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  rlcraft:
+    image: itzg/minecraft-server:java8
+    ports:
+      - 25565:25565
+    environment:
+      EULA: "TRUE"
+      TYPE: "CURSEFORGE"
+      VERSION: "1.12.2"
+      CF_SERVER_MOD: "/modpacks/rlcraft.zip"
+      USE_MODPACK_START_SCRIPT: "FALSE"
+      # FTB_LEGACYJAVAFIX: "TRUE"
+    tty: true
+    stdin_open: true
+    # restart: unless-stopped
+    volumes:
+      - ./minecraft-data:/data
+      - ./modpack:/modpacks
+    
